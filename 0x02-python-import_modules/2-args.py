@@ -1,10 +1,16 @@
 #!/usr/bin/python3
+# 2-args.py
+
 if __name__ == "__main__":
-    from sys import argv
-    userinput = argv[1:]
-    number = len(userinput)
-    print("{:d} {:s}{:s}".format(number, "arguments"
-                                 if number is not 1 else "argument",
-                                 "." if number is 0 else ":"))
-    for index, arg in enumerate(userinput):
-        print("{:d}: {:s}".format(index + 1, arg))
+
+    import sys
+
+    count = len(sys.argv) - 1
+    if count == 0:
+        print("0 arguments.")
+    elif count == 1:
+        print("1 argument:")
+    else:
+        print("{} arguments:".format(count))
+    for i in range(count):
+        print("{}: {}".format(i + 1, sys.argv[i + 1]))
